@@ -10,8 +10,8 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Responsive, fluid spring configuration for signature smooth animation without sluggish delay
-  const springConfig = { damping: 28, stiffness: 500, mass: 0.2 };
+  // Responsive, fluid spring configuration for signature ultra-smooth animation without delay
+  const springConfig = { damping: 32, stiffness: 480, mass: 0.15 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -51,8 +51,8 @@ export default function CustomCursor() {
       }
     };
 
-    window.addEventListener('mousemove', moveCursor);
-    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mousemove', moveCursor, { passive: true });
+    window.addEventListener('mouseover', handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
@@ -64,14 +64,14 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="hidden lg:block fixed top-0 left-0 w-5 h-5 rounded-full pointer-events-none z-[99999] mix-blend-difference"
+      className="hidden lg:block fixed top-0 left-0 w-5 h-5 rounded-full pointer-events-none z-[99999] mix-blend-difference will-change-transform"
       style={{
         x: cursorXSpring,
         y: cursorYSpring,
         backgroundColor: '#FFFFFF',
       }}
       animate={{
-        scale: isHovering ? 2.6 : 1,
+        scale: isHovering ? 2.4 : 1,
         opacity: isHovering ? 0.85 : 1,
       }}
       transition={{ type: 'spring', stiffness: 450, damping: 25 }}

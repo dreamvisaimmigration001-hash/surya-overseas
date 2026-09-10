@@ -80,8 +80,18 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                   });
                 } catch(e) {}
 
-                // 2. Prevent Next.js DevOverlay popup from browser extension hydration false-positives
+                // 2. Prevent Next.js DevOverlay popup from browser extension hydration false-positives and runtime crashes
                 try {
+                  var isExtError = function(msg, url, stack) {
+                    var str = (msg || '') + ' ' + (url || '') + ' ' + (stack || '');
+                    return str.indexOf('chrome-extension://') !== -1 ||
+                           str.indexOf('moz-extension://') !== -1 ||
+                           str.indexOf('safari-extension://') !== -1 ||
+                           str.indexOf('M_ID') !== -1 ||
+                           str.indexOf('bis_skin_checked') !== -1 ||
+                           str.indexOf('bis_frame_id') !== -1;
+                  };
+
                   var origError = console.error;
                   console.error = function() {
                     var text = '';
@@ -89,11 +99,47 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                       var arg = arguments[i];
                       if (typeof arg === 'string') text += ' ' + arg;
                       else if (arg && arg.message) text += ' ' + arg.message;
+                      else if (arg && arg.stack) text += ' ' + arg.stack;
                     }
-                    if (text.indexOf('bis_skin_checked') !== -1 || text.indexOf('bis_frame_id') !== -1) {
-                      return; // suppress false-positive browser extension hydration mismatch
+                    if (isExtError(text)) {
+                      return; // suppress false-positive browser extension error
                     }
                     return origError.apply(console, arguments);
+                  };
+
+                  // Intercept unhandled window errors thrown by browser extension scripts (e.g. Urban VPN / 200.js)
+                  window.addEventListener('error', function(event) {
+                    var msg = event.message || '';
+                    var url = event.filename || '';
+                    var stack = (event.error && event.error.stack) || '';
+                    if (isExtError(msg, url, stack)) {
+                      event.stopImmediatePropagation();
+                      event.preventDefault();
+                      return true;
+                    }
+                  }, true);
+
+                  // Intercept unhandled promise rejections from extensions
+                  window.addEventListener('unhandledrejection', function(event) {
+                    var reason = event.reason || {};
+                    var msg = reason.message || (typeof reason === 'string' ? reason : '');
+                    var stack = reason.stack || '';
+                    if (isExtError(msg, '', stack)) {
+                      event.stopImmediatePropagation();
+                      event.preventDefault();
+                    }
+                  }, true);
+
+                  // Wrap window.onerror as fallback
+                  var prevOnError = window.onerror;
+                  window.onerror = function(msg, url, line, col, error) {
+                    var stack = (error && error.stack) || '';
+                    if (isExtError(msg, url, stack)) {
+                      return true;
+                    }
+                    if (typeof prevOnError === 'function') {
+                      return prevOnError.apply(window, arguments);
+                    }
                   };
                 } catch(e) {}
               })();

@@ -190,21 +190,20 @@ function HeroSection() {
       {/* ========================================================================= */}
       <motion.div
         style={{ y: yTopRight }}
-        className="hidden lg:block absolute top-[12%] right-[4%] xl:right-[6%] z-0 w-52 pointer-events-auto"
+        className="hidden lg:block absolute top-[12%] right-[4%] xl:right-[6%] z-0 w-52 pointer-events-none select-none"
       >
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.6, scale: 1 }}
-          whileHover={{ opacity: 1, scale: 1.05 }}
+          animate={{ opacity: 0.7, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="p-2 rounded-xl bg-white/60 backdrop-blur-md border border-accent-champagne shadow-lg group cursor-pointer transition-all duration-300"
+          className="p-2 rounded-xl bg-white/60 backdrop-blur-md border border-accent-champagne shadow-lg group cursor-default transition-all duration-300"
         >
           <div className="relative h-28 w-full rounded-lg overflow-hidden mb-1.5">
             <Image
               src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=600&auto=format&fit=crop"
               alt="United Kingdom - London Westminster"
               fill
-              className="object-cover group-hover:scale-110 transition-transform duration-700"
+              className="object-cover transition-transform duration-700"
               sizes="200px"
             />
             <div className="absolute top-1.5 left-1.5 px-2 py-0.5 bg-black/60 rounded text-[9px] font-bold text-white uppercase">
@@ -371,9 +370,9 @@ function FloatingDestinations() {
     { name: "Canada", flag: "/flags/ca.png", top: "20%", left: "15%", img: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?q=80&w=800&auto=format&fit=crop" },
     { name: "UK", flag: "/flags/gb.png", top: "30%", left: "45%", img: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop" },
     { name: "Europe", flag: "/flags/eu.png", top: "50%", left: "60%", img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=800&auto=format&fit=crop" },
-    { name: "USA", flag: "/flags/us.png", top: "60%", left: "20%", img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=800&auto=format&fit=crop" },
-    { name: "Australia", flag: "/flags/au.png", top: "70%", left: "75%", img: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=800&auto=format&fit=crop" },
-    { name: "UAE", flag: "/flags/ae.png", top: "65%", left: "45%", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop" },
+    { name: "USA", flag: "/flags/us.png", top: "70%", left: "20%", img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=800&auto=format&fit=crop" },
+    { name: "Australia", flag: "/flags/au.png", top: "80%", left: "75%", img: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=800&auto=format&fit=crop" },
+    { name: "UAE", flag: "/flags/ae.png", top: "76%", left: "45%", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop" },
   ];
 
   return (
