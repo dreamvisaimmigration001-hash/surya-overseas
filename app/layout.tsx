@@ -21,15 +21,18 @@ export const metadata: Metadata = {
   title: 'Surya Overseas | Premium Immigration Consultancy',
   description: 'Expert immigration guidance for study, permanent residency, settlement and global opportunities.',
   icons: {
-    icon: '/logo.jpeg',
-    shortcut: '/logo.jpeg',
-    apple: '/logo.jpeg',
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: 'Surya Overseas',
     description: 'Expert immigration guidance for study, permanent residency, settlement and global opportunities.',
     type: 'website',
-    images: [{ url: '/logo.jpeg' }],
+    images: [{ url: '/logo.png' }],
   },
 };
 

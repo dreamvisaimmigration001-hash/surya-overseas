@@ -40,21 +40,20 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-accent-champagne bg-primary-ivory/95 backdrop-blur-md ${
-          isScrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-accent-champagne bg-primary-ivory/95 backdrop-blur-md ${isScrolled
             ? 'h-20 shadow-sm'
             : 'h-24'
-        }`}
+          }`}
       >
         <div className="h-full max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 relative z-50 group">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-white border border-accent-champagne shadow-xs p-0.5 flex items-center justify-center shrink-0 group-hover:border-accent-gold transition-colors">
+            <div className="relative w-11 h-11 sm:w-13 sm:h-13 flex items-center justify-center shrink-0">
               <Image
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="Surya Overseas Logo"
-                width={48}
-                height={48}
-                className="w-full h-full object-contain rounded-full"
+                width={52}
+                height={52}
+                className="w-full h-full object-contain filter drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105"
                 priority
               />
             </div>
@@ -75,9 +74,8 @@ export default function Navigation() {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className={`transition-colors relative group ${
-                    pathname === link.path ? 'text-accent-gold border-b border-accent-gold pb-1' : 'text-text-charcoal hover:text-accent-gold'
-                  }`}
+                  className={`transition-colors relative group ${pathname === link.path ? 'text-accent-gold border-b border-accent-gold pb-1' : 'text-text-charcoal hover:text-accent-gold'
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -113,13 +111,13 @@ export default function Navigation() {
           >
             <nav className="flex flex-col items-center gap-5 text-center w-full max-w-sm px-6">
               <div className="flex flex-col items-center gap-2 mb-2">
-                <div className="relative w-14 h-14 rounded-full overflow-hidden bg-white border border-accent-champagne shadow-sm p-0.5 flex items-center justify-center">
+                <div className="relative w-16 h-16 flex items-center justify-center">
                   <Image
-                    src="/logo.jpeg"
+                    src="/logo.png"
                     alt="Surya Overseas Logo"
-                    width={56}
-                    height={56}
-                    className="w-full h-full object-contain rounded-full"
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-contain filter drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)]"
                   />
                 </div>
                 <span className="text-xl font-bold uppercase tracking-tight font-sans text-text-navy">

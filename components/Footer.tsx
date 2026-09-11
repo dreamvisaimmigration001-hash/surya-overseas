@@ -9,13 +9,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           <div className="lg:col-span-2 border-r border-accent-champagne/50 pr-8">
             <Link href="/" className="inline-flex items-center gap-3.5 mb-6 group">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-accent-champagne bg-white shadow-xs p-1 flex items-center justify-center shrink-0 group-hover:border-accent-gold transition-colors">
+              <div className="relative w-12 h-12 flex items-center justify-center shrink-0">
                 <Image
-                  src="/logo.jpeg"
+                  src="/logo.png"
                   alt="Surya Overseas Logo"
                   width={48}
                   height={48}
-                  className="w-full h-full object-contain rounded-full"
+                  className="w-full h-full object-contain filter drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div>
