@@ -8,8 +8,6 @@ import { ArrowUpRight, ChevronRight, Globe, Navigation as NavIcon, MapPin, Arrow
 import LatestPPR from '@/components/LatestPPR';
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-
   return (
     <div className="bg-primary-ivory">
       <HeroSection />
@@ -44,8 +42,7 @@ function HeroSection() {
   const yTopRight = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const rotateLeft = useTransform(scrollYProgress, [0, 1], [-2, 3]);
   const rotateRight = useTransform(scrollYProgress, [0, 1], [2, -3]);
-  const textY = useTransform(scrollYProgress, [0, 0.4], [0, 40]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.6], [0, 50]);
 
   return (
     <section 
@@ -218,7 +215,7 @@ function HeroSection() {
       {/* 4. MAIN CENTER TYPOGRAPHY & INTERACTIVE HEADLINE (MAGAZINE EDITORIAL)    */}
       {/* ========================================================================= */}
       <motion.div 
-        style={{ y: textY, opacity: textOpacity }}
+        style={{ y: textY }}
         className="relative z-20 max-w-4xl mx-auto px-6 text-center flex flex-col items-center my-auto"
       >
         {/* Top Gold Divider Tagline */}
@@ -376,7 +373,7 @@ function FloatingDestinations() {
   ];
 
   return (
-    <section className="relative bg-secondary-beige cursor-hover-target py-16 sm:py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-secondary-beige py-16 sm:py-20 md:py-28 overflow-hidden">
       <div className="w-full flex flex-col justify-center">
         <div className="text-center mb-8 md:mb-12 relative z-20 px-4">
           <h2 className="text-[10px] font-bold uppercase tracking-[0.3em] text-accent-gold mb-2 md:mb-3">Global Network</h2>
@@ -422,7 +419,7 @@ function DestinationNode({ name, flag, top, left, img, index }: { name: string, 
         <motion.div 
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
-          className="flex flex-col items-center gap-2 cursor-pointer select-none group"
+          className="flex flex-col items-center gap-2 cursor-default select-none group"
         >
           {/* Substantially Increased Flag Size - Highly Visible, Crisp & Prestigious */}
           <div className="relative w-14 h-9 sm:w-16 sm:h-10 md:w-20 md:h-13 lg:w-24 lg:h-15 overflow-hidden rounded-lg shadow-lg shrink-0 border-2 border-white group-hover:border-accent-gold transition-all duration-300 group-hover:shadow-2xl">

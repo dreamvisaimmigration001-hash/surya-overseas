@@ -17,7 +17,14 @@ export default function VisaServicesPage() {
       {/* HERO */}
       <section ref={ref} className="relative h-screen flex items-center overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <Image src="https://picsum.photos/seed/visahero/1920/1080" alt="Travel" fill className="object-cover" referrerPolicy="no-referrer" />
+          <Image 
+            src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?q=80&w=1920&auto=format&fit=crop" 
+            alt="International Passport and Flight Travel" 
+            fill 
+            priority
+            className="object-cover" 
+            referrerPolicy="no-referrer" 
+          />
           <div className="absolute inset-0 bg-text-navy/60" />
         </motion.div>
         
@@ -52,10 +59,30 @@ export default function VisaServicesPage() {
       <section className="py-32 bg-secondary-beige">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8">
           {[
-            { title: "Tourist Visa", icon: Compass, desc: "Explore new destinations for leisure, tourism, and short-term visits.", img: "https://picsum.photos/seed/vt1/800/600" },
-            { title: "Business Visa", icon: Briefcase, desc: "Attend conferences, meetings, and explore international business opportunities.", img: "https://picsum.photos/seed/vt2/800/600" },
-            { title: "Family Visit Visa", icon: Heart, desc: "Reunite with family members and loved ones living abroad.", img: "https://picsum.photos/seed/vt3/800/600" },
-            { title: "Transit Visa", icon: PlaneTakeoff, desc: "Seamless connections through international hubs for your onward journey.", img: "https://picsum.photos/seed/vt4/800/600" },
+            { 
+              title: "Tourist Visa", 
+              icon: Compass, 
+              desc: "Explore new destinations for leisure, tourism, and short-term visits.", 
+              img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop" 
+            },
+            { 
+              title: "Business Visa", 
+              icon: Briefcase, 
+              desc: "Attend conferences, meetings, and explore international business opportunities.", 
+              img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" 
+            },
+            { 
+              title: "Family Visit Visa", 
+              icon: Heart, 
+              desc: "Reunite with family members and loved ones living abroad.", 
+              img: "https://images.unsplash.com/photo-1591115765373-5207764f72e7?q=80&w=1200&auto=format&fit=crop" 
+            },
+            { 
+              title: "Transit Visa", 
+              icon: PlaneTakeoff, 
+              desc: "Seamless connections through international hubs for your onward journey.", 
+              img: "https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=1200&auto=format&fit=crop" 
+            },
           ].map((cat, i) => (
             <motion.div 
               key={i}

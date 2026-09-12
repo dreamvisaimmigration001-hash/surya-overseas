@@ -7,9 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
-  ZoomIn,
-  ZoomOut,
-  ExternalLink,
+  Eye,
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
@@ -193,7 +191,6 @@ export default function LatestPPR() {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState<'All' | 'Australia' | 'Europe' | 'New Zealand'>('All');
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [isZoomed, setIsZoomed] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // Filter items dynamically
@@ -245,25 +242,21 @@ export default function LatestPPR() {
 
   const openModal = (index: number) => {
     setSelectedIndex(index);
-    setIsZoomed(false);
     document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {
     setSelectedIndex(null);
-    setIsZoomed(false);
     document.body.style.overflow = '';
   };
 
   const nextModal = () => {
     if (selectedIndex === null) return;
-    setIsZoomed(false);
     setSelectedIndex((selectedIndex + 1) % filteredData.length);
   };
 
   const prevModal = () => {
     if (selectedIndex === null) return;
-    setIsZoomed(false);
     setSelectedIndex((selectedIndex - 1 + filteredData.length) % filteredData.length);
   };
 
@@ -405,7 +398,7 @@ export default function LatestPPR() {
                   {/* Shimmer sweep & View Full Document hover action */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 z-20">
                     <span className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-white text-text-navy text-xs font-bold shadow-xl">
-                      <ZoomIn size={15} className="text-red-600" />
+                      <Eye size={15} className="text-red-600" />
                       <span>Inspect Biometric Document</span>
                     </span>
                   </div>
@@ -553,26 +546,6 @@ export default function LatestPPR() {
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
-                    aria-label={isZoomed ? "Zoom out" : "Zoom in"}
-                    onClick={() => setIsZoomed(!isZoomed)}
-                    className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 text-text-navy flex items-center justify-center transition-colors cursor-pointer"
-                    title={isZoomed ? "Zoom Out" : "Zoom In"}
-                  >
-                    {isZoomed ? <ZoomOut size={18} /> : <ZoomIn size={18} />}
-                  </button>
-
-                  <a
-                    href={filteredData[selectedIndex].image}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 text-text-navy flex items-center justify-center transition-colors cursor-pointer"
-                    title="Open original file"
-                  >
-                    <ExternalLink size={18} />
-                  </a>
-
-                  <button
-                    type="button"
                     aria-label="Close Preview"
                     onClick={closeModal}
                     className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 text-text-navy flex items-center justify-center transition-colors cursor-pointer"
@@ -602,12 +575,8 @@ export default function LatestPPR() {
                 <img
                   src={filteredData[selectedIndex].image}
                   alt={`${filteredData[selectedIndex].title} - ${filteredData[selectedIndex].clientName}`}
-                  onClick={() => setIsZoomed(!isZoomed)}
-                  className={`max-w-full object-contain rounded-md shadow-2xl transition-all duration-300 ${isZoomed
-                    ? 'scale-150 cursor-zoom-out my-auto'
-                    : 'max-h-[64vh] cursor-zoom-in hover:opacity-95'
-                    }`}
-                  style={{ maxHeight: isZoomed ? 'none' : 'calc(70vh - 40px)' }}
+                  className="max-w-full object-contain rounded-md shadow-2xl max-h-[64vh]"
+                  style={{ maxHeight: 'calc(70vh - 40px)' }}
                 />
 
                 {/* Left/Right Navigation inside Modal */}

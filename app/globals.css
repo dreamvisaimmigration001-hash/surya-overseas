@@ -43,14 +43,11 @@ body {
 
 /* Custom cursor styling for luxury aesthetic only on desktop with fine mouse pointer */
 @media (pointer: fine) and (min-width: 1024px) {
-  body {
-    cursor: none;
-  }
-  a, button, [role="button"] {
-    cursor: none;
+  *, *::before, *::after {
+    cursor: none !important;
   }
   input, select, textarea {
-    cursor: auto;
+    cursor: auto !important;
   }
 }
 
