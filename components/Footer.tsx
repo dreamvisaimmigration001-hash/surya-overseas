@@ -15,7 +15,7 @@ export default function Footer() {
                   alt="Surya Overseas Logo"
                   width={48}
                   height={48}
-                  className="w-full h-full object-contain filter drop-shadow-[0_1px_3px_rgba(0,0,0,0.35)] transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div>

@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
+  manifest: '/manifest.json',
   openGraph: {
     title: 'Surya Overseas',
     description: 'Expert immigration guidance for study, permanent residency, settlement and global opportunities.',
