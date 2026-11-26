@@ -58,7 +58,7 @@ export default function Footer() {
                 </div>
               </a>
                             <a
-                href="tel:9041222131"
+                href="tel:+91 98769 00883"
                 className="flex items-center gap-3 bg-white/60 backdrop-blur-xs p-3.5 rounded-lg border border-accent-champagne/80 shadow-xs hover:border-accent-gold hover:bg-white transition-all group"
               >
                 <div className="w-8 h-8 rounded-full bg-accent-gold/10 flex items-center justify-center shrink-0 group-hover:bg-accent-gold text-accent-gold group-hover:text-white transition-colors">
@@ -67,7 +67,7 @@ export default function Footer() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-gold mb-0.5">Contact Number</p>
                   <p className="text-text-navy text-sm font-semibold tracking-wide group-hover:text-accent-gold transition-colors">
-                    +91 90412 22131
+                    +91 98769 00883
                   </p>
                 </div>
               </a>
