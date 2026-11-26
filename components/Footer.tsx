@@ -44,7 +44,7 @@ export default function Footer() {
               </div>
 
               <a
-                href="tel:8968599924"
+                href="tel:98769 00883"
                 className="flex items-center gap-3 bg-white/60 backdrop-blur-xs p-3.5 rounded-lg border border-accent-champagne/80 shadow-xs hover:border-accent-gold hover:bg-white transition-all group"
               >
                 <div className="w-8 h-8 rounded-full bg-accent-gold/10 flex items-center justify-center shrink-0 group-hover:bg-accent-gold text-accent-gold group-hover:text-white transition-colors">
@@ -58,7 +58,7 @@ export default function Footer() {
                 </div>
               </a>
                             <a
-                href="tel:+91 98769 00883"
+                href="tel:98769 00883"
                 className="flex items-center gap-3 bg-white/60 backdrop-blur-xs p-3.5 rounded-lg border border-accent-champagne/80 shadow-xs hover:border-accent-gold hover:bg-white transition-all group"
               >
                 <div className="w-8 h-8 rounded-full bg-accent-gold/10 flex items-center justify-center shrink-0 group-hover:bg-accent-gold text-accent-gold group-hover:text-white transition-colors">
