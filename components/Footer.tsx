@@ -53,7 +53,7 @@ export default function Footer() {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-gold mb-0.5">Contact Number</p>
                   <p className="text-text-navy text-sm font-semibold tracking-wide group-hover:text-accent-gold transition-colors">
-                    +91 89685 99924
+                    +91 98769 00883
                   </p>
                 </div>
               </a>
